@@ -1,7 +1,6 @@
 use std::fs;
 
 use serde::{Deserialize, Serialize};
-use serde_json::Error;
 
 use crate::EmailType::{Fak, FakCc, Statment, StatmwentCc};
 
@@ -37,22 +36,6 @@ fn main() {
     println!("{:?}", res);
 }
 
-fn temp_data() -> Result<InputData, Error> {
-    serde_json::from_str(
-        r#"
-{
-    "customerNo": "10003",
-    "name": "RINA Sweden AB",
-    "fakturaCreditNotaTo": "REDACTED",
-    "fakturaCreditNotaCc": "",
-    "statmentTo": "REDACTED",
-    "DCT_EMAILPAYMENT": ""
-  }
-  "#,
-    )
-}
-
-// #[derive(Debug, Clone, PartialEq, Eq)]
 #[derive(Serialize, Debug, PartialEq, Eq, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct ResultData {
