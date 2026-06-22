@@ -5,9 +5,6 @@ use serde::{Deserialize, Serialize};
 use crate::EmailType::{Fak, FakCc, Statment, StatmwentCc};
 
 fn main() {
-    let temp = ResultData::new(Fak("5545".to_string(), "mk".to_string()));
-    println!("{:?}", serde_json::to_string(&temp).unwrap());
-
     let file = fs::File::open("input.json").expect("need the file");
 
     let json_list: Vec<InputData> =
@@ -17,22 +14,22 @@ fn main() {
 
     for json in json_list {
         if !json.faktura_credit_nota_to.is_empty() {
-            let gg = ResultData::new(Fak(temp.customer_no.clone(), json.faktura_credit_nota_to));
+            let gg = ResultData::new(Fak(json.customer_no.clone(), json.faktura_credit_nota_to));
             // println!("{:?}", serde_json::to_string(&gg).unwrap());
             res.push(gg);
         }
         if !json.faktura_credit_nota_cc.is_empty() {
-            let gg = ResultData::new(FakCc(temp.customer_no.clone(), json.faktura_credit_nota_cc));
+            let gg = ResultData::new(FakCc(json.customer_no.clone(), json.faktura_credit_nota_cc));
             // println!("{:?}", serde_json::to_string(&gg).unwrap());
             res.push(gg);
         }
         if !json.statment_to.is_empty() {
-            let gg = ResultData::new(Statment(temp.customer_no.clone(), json.statment_to));
+            let gg = ResultData::new(Statment(json.customer_no.clone(), json.statment_to));
             // println!("{:?}", serde_json::to_string(&gg).unwrap());
             res.push(gg);
         }
         if !json.statment_cc.is_empty() {
-            let gg = ResultData::new(Statment(temp.customer_no.clone(), json.statment_cc));
+            let gg = ResultData::new(Statment(json.customer_no.clone(), json.statment_cc));
             // println!("{:?}", serde_json::to_string(&gg).unwrap());
             res.push(gg);
         }
