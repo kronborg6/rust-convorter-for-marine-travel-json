@@ -37,32 +37,32 @@ and for me to learn stuff
 ```json
 [
   {
-    "customerNo": "5545",
+    "customerNo": "60677",
     "emailType": 1,
     "email": "king@castle.dk"
   },
   {
-    "customerNo": "5545",
+    "customerNo": "60677",
     "emailType": 3,
     "email": "king@castle.dk"
   },
   {
-    "customerNo": "5545",
+    "customerNo": "60677",
     "emailType": 3,
     "email": "queen@castle.dk"
   },
   {
-    "customerNo": "5545",
+    "customerNo": "60674",
     "emailType": 1,
     "email": "queen@castle.dk"
   },
   {
-    "customerNo": "5545",
+    "customerNo": "60674",
     "emailType": 3,
     "email": "queen@castle.dk"
   },
   {
-    "customerNo": "5545",
+    "customerNo": "60674",
     "emailType": 3,
     "email": "King@castle.dk"
   }
