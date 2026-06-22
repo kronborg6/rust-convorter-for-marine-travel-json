@@ -31,6 +31,11 @@ fn main() {
             // println!("{:?}", serde_json::to_string(&gg).unwrap());
             res.push(gg);
         }
+        if !json.statment_cc.is_empty() {
+            let gg = ResultData::new(Statment(temp.customer_no.clone(), json.statment_cc));
+            // println!("{:?}", serde_json::to_string(&gg).unwrap());
+            res.push(gg);
+        }
     }
 
     println!("{:?}", res);
@@ -56,6 +61,7 @@ pub struct InputData {
     pub faktura_credit_nota_to: String,
     pub faktura_credit_nota_cc: String,
     pub statment_to: String,
+    pub statment_cc: String,
 }
 
 #[derive(Serialize)]
