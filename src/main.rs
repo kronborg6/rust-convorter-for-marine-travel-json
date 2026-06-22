@@ -34,6 +34,10 @@ fn main() {
     }
 
     println!("{:?}", res);
+
+    let res_file = fs::File::create("result.json").expect("need that file okay");
+
+    serde_json::to_writer_pretty(res_file, &res).expect("failed to create json file");
 }
 
 #[derive(Serialize, Debug, PartialEq, Eq, Clone)]
