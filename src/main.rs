@@ -2,7 +2,7 @@ use std::fs;
 
 use serde::{Deserialize, Serialize};
 
-use crate::EmailType::{Fak, FakCc, Statment, StatmwentCc};
+use crate::EmailType::{Fak, FakCc, Statment, StatmentCc};
 
 fn main() {
     let file = fs::File::open("input.json").expect("need the file");
@@ -29,7 +29,7 @@ fn main() {
             res.push(gg);
         }
         if !json.statment_cc.is_empty() {
-            let gg = ResultData::new(Statment(json.customer_no.clone(), json.statment_cc));
+            let gg = ResultData::new(StatmentCc(json.customer_no.clone(), json.statment_cc));
             // println!("{:?}", serde_json::to_string(&gg).unwrap());
             res.push(gg);
         }
@@ -66,7 +66,7 @@ pub enum EmailType {
     Fak(String, String),
     FakCc(String, String),
     Statment(String, String),
-    StatmwentCc(String, String),
+    StatmentCc(String, String),
 }
 
 impl ResultData {
@@ -87,7 +87,7 @@ impl ResultData {
                 email_type: 3,
                 email,
             },
-            StatmwentCc(customer_no, email) => Self {
+            StatmentCc(customer_no, email) => Self {
                 customer_no,
                 email_type: 4,
                 email,

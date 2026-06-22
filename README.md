@@ -14,9 +14,9 @@ and for me to learn stuff
     "customerNo": "60677",
     "name": "King Kronborg",
     "fakturaCreditNotaTo": "king@castle.dk",
-    "fakturaCreditNotaCc": "",
+    "fakturaCreditNotaCc": "queen@castle.dk hoff@castle.dk",
     "statmentTo": "king@castle.dk",
-    "statmentTo": "queen@castle.dk",
+    "statmentCc": "queen@castle.dk",
     "DCT_EMAILPAYMENT": ""
   },
 
@@ -26,11 +26,10 @@ and for me to learn stuff
     "fakturaCreditNotaTo": "queen@castle.dk",
     "fakturaCreditNotaCc": "",
     "statmentTo": "queen@castle.dk",
-    "statmentTo": "King@castle.dk",
+    "statmentCc": "King@castle.dk",
     "DCT_EMAILPAYMENT": ""
-  },
+  }
 ]
-
 ```
 
 ### result.json
@@ -43,12 +42,17 @@ and for me to learn stuff
   },
   {
     "customerNo": "60677",
+    "emailType": 2,
+    "email": "queen@castle.dk hoff@castle.dk"
+  },
+  {
+    "customerNo": "60677",
     "emailType": 3,
     "email": "king@castle.dk"
   },
   {
     "customerNo": "60677",
-    "emailType": 3,
+    "emailType": 4,
     "email": "queen@castle.dk"
   },
   {
@@ -63,7 +67,7 @@ and for me to learn stuff
   },
   {
     "customerNo": "60674",
-    "emailType": 3,
+    "emailType": 4,
     "email": "King@castle.dk"
   }
 ]
