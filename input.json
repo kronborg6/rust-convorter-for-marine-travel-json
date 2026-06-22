@@ -1,0 +1,19 @@
+[
+  {
+    "customerNo": "10003",
+    "name": "RINA Sweden AB",
+    "fakturaCreditNotaTo": "REDACTED",
+    "fakturaCreditNotaCc": "",
+    "statmentTo": "REDACTED",
+    "DCT_EMAILPAYMENT": ""
+  },
+
+  {
+    "customerNo": "10000",
+    "name": "RINA Sweden AB",
+    "fakturaCreditNotaTo": "REDACTED",
+    "fakturaCreditNotaCc": "",
+    "statmentTo": "REDACTED",
+    "DCT_EMAILPAYMENT": ""
+  }
+]
