@@ -37,6 +37,18 @@ cargo build --release --target [system]
 
 ## command flags
 
+| Flag | Description |
+|---|---|
+| `-p` | Prints the json object list to the console. |
+| `--print` | Prints the json object list to the console. |
+| `Print` | Prints the json object list to the console. |
+| `-d` | output using dgb! marcro. |
+| `--debug` | output using dgb! marcro. |
+| `Debug` | output using dgb! marcro. |
+| `-no` | does not generated a reust.json / overwrite it. |
+| `--no-result` | does not generated a reust.json / overwrite it. |
+| `--no-json` | does not generated a reust.json / overwrite it. |
+| `--no-output` | does not generated a reust.json / overwrite it. |
 
 ### all print flags
 
