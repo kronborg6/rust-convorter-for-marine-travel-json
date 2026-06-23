@@ -38,11 +38,11 @@ fn main() {
 
     let has = |s: &str| args.iter().any(|arg| arg == s);
 
-    if has("print") || has("-p") || has("--print") {
+    if has("Print") || has("-p") || has("--print") {
         println!("{:?}", result_list);
     }
 
-    if has("debug") || has("-d") || has("--debug") {
+    if has("Debug") || has("-d") || has("--debug") {
         dbg!(&result_list);
     }
 
