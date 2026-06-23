@@ -1,4 +1,4 @@
-use std::fs;
+use std::{env, fs};
 
 use serde::{Deserialize, Serialize};
 
@@ -10,36 +10,47 @@ fn main() {
     let json_list: Vec<InputData> =
         serde_json::from_reader(file).expect("file should be proper JSON");
 
-    let mut res: Vec<ResultData> = Vec::new();
+    let mut result_list: Vec<ResultData> = Vec::new();
 
     for json in json_list {
         if !json.faktura_credit_nota_to.is_empty() {
-            let gg = ResultData::new(Fak(json.customer_no.clone(), json.faktura_credit_nota_to));
-            // println!("{:?}", serde_json::to_string(&gg).unwrap());
-            res.push(gg);
+            let faktura_to =
+                ResultData::new(Fak(json.customer_no.clone(), json.faktura_credit_nota_to));
+            result_list.push(faktura_to);
         }
         if !json.faktura_credit_nota_cc.is_empty() {
-            let gg = ResultData::new(FakCc(json.customer_no.clone(), json.faktura_credit_nota_cc));
-            // println!("{:?}", serde_json::to_string(&gg).unwrap());
-            res.push(gg);
+            let faktura_cc =
+                ResultData::new(FakCc(json.customer_no.clone(), json.faktura_credit_nota_cc));
+            result_list.push(faktura_cc);
         }
         if !json.statment_to.is_empty() {
-            let gg = ResultData::new(Statment(json.customer_no.clone(), json.statment_to));
-            // println!("{:?}", serde_json::to_string(&gg).unwrap());
-            res.push(gg);
+            let statment_to = ResultData::new(Statment(json.customer_no.clone(), json.statment_to));
+            result_list.push(statment_to);
         }
         if !json.statment_cc.is_empty() {
-            let gg = ResultData::new(StatmentCc(json.customer_no.clone(), json.statment_cc));
-            // println!("{:?}", serde_json::to_string(&gg).unwrap());
-            res.push(gg);
+            let statment_cc =
+                ResultData::new(StatmentCc(json.customer_no.clone(), json.statment_cc));
+            result_list.push(statment_cc);
         }
     }
 
-    println!("{:?}", res);
+    let args: Vec<String> = env::args().collect();
+
+    let has = |s: &str| args.iter().any(|arg| arg == s);
+
+    if has("print") || has("-p") || has("--print") {
+        println!("{:?}", result_list);
+    }
+
+    if has("debug") || has("-d") || has("--debug") {
+        dbg!(&result_list);
+    }
 
     let res_file = fs::File::create("result.json").expect("need that file okay");
 
-    serde_json::to_writer_pretty(res_file, &res).expect("failed to create json file");
+    serde_json::to_writer_pretty(res_file, &result_list).expect("failed to create json file");
+
+    println!("completed....")
 }
 
 #[derive(Serialize, Debug, PartialEq, Eq, Clone)]
