@@ -46,9 +46,11 @@ fn main() {
         dbg!(&result_list);
     }
 
-    let res_file = fs::File::create("result.json").expect("need that file okay");
+    if !has("--no-result") && !has("--no-json") && !has("-no") && !has("--no-output") {
+        let res_file = fs::File::create("result.json").expect("need that file okay");
 
-    serde_json::to_writer_pretty(res_file, &result_list).expect("failed to create json file");
+        serde_json::to_writer_pretty(res_file, &result_list).expect("failed to create json file");
+    }
 
     println!("completed....")
 }
